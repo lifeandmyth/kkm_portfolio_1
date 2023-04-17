@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<!-- django-crispy-forms적용 -->
+{% load crispy_forms_tags %}
+{% block title %}
+<title>Create Post - Diners</title>
+{% endblock %}
+
+
+{% block main_area %}
+
+  <h1>Create New Post</h1>
+  <hr />
+  <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+
+    <!--tags 필드가 ManyToManyField로 지정되어 있어 기본적으로 제공하는 폼은 현재 존재하는 태그만 선택할 수 있기에, 별개로 사용자가 입력하고 추가할 수 있는 선택란을 생성 -->
+    <!-- form 밑에 tags 필드 추가: -->
+    <!-- <tr> -->
+      <!-- tr은 테이블의 한 줄 부여(구역 설정), th는 필드명, td는 input 요소를 필드의 데이터 타입(text)에 맞게 부여-->
+      <!-- <th><label for="id_tags_str">Tags:</label></th>
+        <td><input type="text" name="tags_str" id="id_tags_str"></td>
+      </tr> -->
+      
+      <!-- form에 crispy-forms 적용 -->
+      {{ form | crispy }}
+      <!-- 더이상 폼이 테이블 형태를 취하지 않기에 table를 지워줍니다. -->
+      <!-- input태그의 class도 수정하여 crispy_forms의 형태를 취함 -->
+      <div id="div_id_tags_str">
+        <label for="id_tags_str">Tags:</label>
+        <input type="text" name="tags_str" id="id_tags_str" class="textinput textInput form-control">
+      </div>
+      <br/>
+
+    <button type="submit" class="btn btn-primary float-right">Submit</button>
+    
+  </form>
+  <!-- 실시간으로 아래에 마크다운이 적용되어 렌더링된 모습이 나타남: -->
+  {{ form.media }}
+{% endblock %}

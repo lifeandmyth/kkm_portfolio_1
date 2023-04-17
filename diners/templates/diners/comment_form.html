@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+<title>Edit Comment - Diners</title>
+{% endblock %}
+
+
+{% block main_area %}
+
+<h1>Edit Comment</h1>
+<hr />
+<form method="post" id="comment-form"> {% csrf_token %}
+
+  {{ form | crispy }}
+  <br />
+  <button type="submit" class="btn btn-primary float-right">Submit</button>
+
+</form>
+<!-- 실시간으로 아래에 마크다운이 적용되어 렌더링된 모습이 나타남: -->
+{% endblock %}

@@ -1,0 +1,9 @@
+Django==3.2 
+crispy-bootstrap4==2022.1 
+django-crispy-forms==2.0 
+Pillow==9.5.0 
+django-summernote==0.8.20.0 
+django-extensions==3.2.1 
+django-allauth==0.54.0 
+django-markdownx==4.0.2 
+Markdown==3.4.3

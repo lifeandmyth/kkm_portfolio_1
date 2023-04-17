@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Diners Home</title>
+{% endblock %}
+{% block main_area %}
+<div class="row">
+    <!-- diners entries-->
+    <div class="col-lg-8" id="main-area">
+
+        {% if user.is_authenticated %}
+            {% if user.is_superuser or user.is_staff %}
+                <a href="/diners/create_post/" class="btn btn-info btn-sm float-right" role="button"><i class="bi bi-pencil-fill"></i>&nbsp;&nbsp;New Post</a>
+            {% endif %}
+        {% endif %}
+
+        <h1 class="my-4">
+            Diners Home
+            {% if search_info %}<small class="text-muted">{{ search_info }}</small>{% endif %}
+            {% if category %}<span class="badge badge-secondary">{{ category }}</span>{% endif %}
+            {% if tag %}<span class="badge badge-primary"><i class="bi bi-tags-fill"></i>{{ tag }} ({{ tag.post_set.count }})</span>{% endif %}
+        </h1>
+        <!-- diners post-->
+        {% if post_list.exists %}
+        <!-- post_list: views의 PostList()에서 받은 값 -->
+        {% for p in post_list %}
+        <div class="card mb-4" id="post-{{ p.id }}">
+            {% if p.head_image %} {# 즉 p.head_image ==True? 을 물어본 것 #}
+            <img class="card-img-top" src="{{ p.head_image.url }}" alt="{{ p }} head image" />
+
+            {% else %}
+            <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/700/500" alt="random_image">
+            {% endif %}
+            <div class="card-body">
+                <!-- if문을 사용해 category가 context로 넘어올 때만  -->
+                <!-- category: views의 category_page에서 받은 값 -->
+                {% if p.category %}
+                <span class="badge badge-secondary float-right">{{ p.category }}</span>
+                {% else %}
+                <span class="badge badge-secondary float-right">미분류</span>
+                {% endif %}
+
+                <!-- tag를 badge와 함께 추가하려는데 tag값이 있을 때만 보이는 방식 -->
+                {% if tag %}
+                <span class="badge badge-info">{{ tag }}</span>
+                {% endif %}
+
+                <h5 class="card-title"><a href="{{ p.get_absolute_url }}">{{ p.title }} {# 제목 #}</a></h5>
+                {% if p.hook_text %}
+                <h5 class="text-muted">{{ p.hook_text }}</h5>
+                {% endif %}
+                <p class="card-text">
+                    <!-- safe로 태그 제거 처리. -->
+                    <!-- trun... _html: ( ) 은 해당 textarea에서 태그를 제외하고 나서 수치 ( )만큼 제한하는 명령어 -->
+                    <!-- 여기서 마크다운 문법을 적용하고 이 값을 HTML로 만들기 -->
+                    <!-- 정보가 html로 넘어오므로 truncatechars > truncatechars_html -->
+                    {{ p.get_content_markdown | safe | truncatechars_html:300 }}
+                </p>
+
+                {% if p.tags.exists %}
+                <i class="bi bi-tags"></i>
+                <!-- post를 리스트로 템플릿에 넘겨받았을 때, 
+                    ManytoMany 관계의 column(field: tags)의 데이터 랜더링 방법 -->
+                {% for tag in p.tags.iterator %}
+                <a href="{{ tag.get_absolute_url }}"><span class="badge badge-pill badge-light">{{ tag }}</span></a>
+                {% endfor%}
+                <br>
+                <br>
+                {% endif %}
+
+                <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read More →</a>
+            </div>
+            <div class="card-footer text-muted">
+                Posted on {{ p.created_at }} by
+
+                {# 작성자 들어갈 곳 #}
+                <a href="#">{{ p.author | upper }}</a>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h3>아직 게시물이 없습니다.</h3>
+        {% endif %}
+
+
+        <!-- Pagination-->
+        <!-- <ul class="pagination justify-content-center mb-4">
+            <li class="page-item"><a class="page-link" href="#!">← Older</a></li>
+            <li class="page-item disabled"><a class="page-link" href="#!">Newer →</a></li>
+        </ul>-->
+          <!-- <pagination의 목적:>
+            1. 서버쪽에서 목록이 넘어오면 각 페이지별로 목록이 보이도록 하기
+            2. 이전 페이지 기능:
+            제일 왼쪽 이전페이지를 클릭을 하면, 이전페이지로 이동해야 함.
+             2-2. 현재 페이지가 1이면, 이전페이지 버튼은 비활성화
+            3. 다음 페이지 기능:
+            제일 오른쪽의 다음페이지를 클릭을 하면, 다음페이지로 이동. 
+            3-2. 현재 페이지가 마지막이면, 다음페이지 버튼은 비활성화
+-->
+        <!-- bootstrap의 nav pagination 복사 -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center mb-4">
+              <!-- 이전 페이지로 이동 -->
+              <!-- 1페이지 일 경우, 비활성화. 1페이지 아닐 경우 활성화. -->
+              <!-- if page_obj.has_previous : 이전 페이지가 있으면 True -->
+              {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link text-white bg-dark" href="/diners/?page={{page_obj.previous_page_number}}" aria-label="Previous">
+                  <!-- &laquo, &raquo : 특수기호 <<, >>. 그냥 특수기호를 입력해 쓸 수도 있지만(윈도우) 리눅스 환경에선 이렇게 할시 에러 뜰 수 있음. -->
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <!-- &laquo, &raquo : 특수기호 <<, >>. 그냥 특수기호를 입력해 쓸 수도 있지만(윈도우) 리눅스 환경에선 이렇게 할시 에러 뜰 수 있음. -->
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              {% endif %}
+              <!-- views.py의 PostList 클래스에 paginate = 5(임의 숫자) 정의를 하면 템플릿에 넘겨주는 객체 변수: -->
+              <!-- page_obj.paginator.page_range -->
+              <!-- 페이지별 목록 보기 -->
+              <!-- data 검증: -->
+              {% for page in page_obj.paginator.page_range %}
+              <!-- 현재 선택한 페이지 번호 
+                중괄중괄 page_obj.number 
+              -->
+                {% if page_obj.number == forloop.counter %}
+                  <!-- 현재 선택한 페이지 번호는 비활성화 시킴 -->
+                <li class="page-item disabled">
+                  <a class="page-link text-info" href="{{ request.path }}?page={{ page }}">{{ page }}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                  <a class="page-link text-white bg-dark" href="{{ request.path }}?page={{ page }}">{{ page }}</a>
+                </li>
+                {% endif %}
+              {% endfor %}
+                <!-- end 페이지별 목록 보기 -->
+
+              <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+              <!-- 다음페이지로 이동 -->
+              {% if page_obj.has_next %}
+              <li class="page-item">
+                <a class="page-link text-light bg-dark" href="/diners/?page={{page_obj.next_page_number}}" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+              {% else %}
+              <!-- 안보이게 하기 -->
+              <li class="page-item disabled" style="display: none">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>            
+              
+              {% endif %}
+            </ul>
+          </nav>    
+    </div>
+    <!-- 경로 설정은 template이 기준 -->
+    
+    {% include 'diners/side_widgets.html' %}
+</div>
+{% endblock main_area %}
