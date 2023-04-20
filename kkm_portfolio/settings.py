@@ -58,6 +58,9 @@ INSTALLED_APPS = [
 
     'diners',
     'single_pages',
+    'dashboard',
+    #datas적용된 앱들
+    'food_costs',
 ]
 
 MIDDLEWARE = [

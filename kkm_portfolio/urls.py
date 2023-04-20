@@ -26,12 +26,16 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('diners/', include('diners.urls')),
     path('', include('single_pages.urls')),
+    path('dashboard/', include('dashboard.urls')),
+    
+    #summernote extension
     path('summernote/', include('django_summernote.urls')),
 
     #all-auth path
     path('accounts/', include('allauth.urls')),
     #django-markdownx path
     path('markdownx/', include('markdownx.urls')),
+
 
 ]
 # summernote: When debug option is enabled(DEBUG=True), DO NOT forget to add urlpatterns as shown below:
