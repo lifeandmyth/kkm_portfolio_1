@@ -4,7 +4,7 @@
 /* 그림 크기가 최대한 크게 나오도록 cover 설정으로 */
 body {
   /* 이미지가 상후 또는 좌우로 늘어나지 않도록 화면 크기에 맞춰 잘라내기 */
-  background: url("/static/single_pages/images/night_ocean.jpg") no-repeat center center fixed;
+  background: url("/static/single_pages/images/code_sun_1920.jpg") no-repeat center center fixed;
   /* 여러 브라우저에서도 같은 모습으로 맞추기 */
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -14,9 +14,21 @@ body {
   font-family: 'Gothic A1', sans-serif;
 }
 
+
+
 /* 푸터에 의해 section 안의 내용이 가려지지 않도록 */
 section {
   margin-bottom: 150px;
+}
+
+section .container div div h1 {
+  color: #F6F1E9;
+}
+section .container div div p {
+  color: #F6F1E9;
+}
+section .container div div h3 {
+  color: #F6F1E9;
 }
 
 .card { 

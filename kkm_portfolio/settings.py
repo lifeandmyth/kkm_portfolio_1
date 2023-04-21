@@ -57,7 +57,10 @@ INSTALLED_APPS = [
     'markdownx',
 
     'diners',
+    # diners, about_me(자기소개), portfolio 포함
     'single_pages',
+    # 대시보드에 들어갈 식재료 목록&링크를 게시 // 대시보드
+    # 'itemlist', 
     'dashboard',
     #datas적용된 앱들
     'food_costs',

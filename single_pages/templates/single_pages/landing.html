@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +9,106 @@
   <title> 김경민의 코딩연구소 </title>
 
   <link rel="stylesheet" href="{% static 'diners/bootstrap/bootstrap.min.css' %}" media="screen">
- 
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 
   <link rel="stylesheet" href="{% static 'single_pages/css/landing.css' %}" media="screen">
-  
+
 </head>
+
 <body>
-  
-  {% include 'navbar.html' %}
+
+  <!-- Navigation-->
+
+  {% load socialaccount %}
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+    <div class="container">
+      <a class="navbar-brand text-dark" href="/">DiveLAB</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link text-dark" href="/diners/">
+              Diners
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link text-dark" href="/about_me/">About_me</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="/portfolio/">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="/toy_pjts/">Toy Projects</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle  text-dark" data-toggle="dropdown" href="#" role="button"
+              aria-expanded="false">
+              <!-- (구글) 아바타 집어넣기 -->
+              <!-- 사용자가 로그인했을 경우, 그 사용자의 구글 아바타 보여주기 -->
+              {% if user.socialaccount_set.all.0.get_avatar_url %}
+              <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="" class="rounded-circle" width="25px">
+              <!-- 로그인 안했을 경우 API 생성 이미지 -->
+              {% else %}
+              <img src="https://doitdjango.com/avatar/id/1491/c4fc00950f0f17b8/svg/{{ user.email }}" alt=""
+                class="rounded-circle" width="25px">
+
+              {% endif %}
+              &nbsp;
+              {{ user.username }}
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/accounts/logout/">로그아웃</a>
+
+            </div>
+          </li>
+          <!-- bootstrap button에서 data-toggle과 data-target을 가져와 해당 a태그를 modal창 소환 버튼으로 만듦. -->
+          <!-- modal 클릭 이벤트 요소 -->
+          {% else %}
+          <li>
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">
+              <i class="bi bi-box-arrow-in-right"></i> 로그인
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+        <!-- Button trigger modal -->
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body justify-content-center">
+          <!-- mb-1로 아래 여백1, col-12로 버튼이 모달창 전부를 가로지름. -->
+          <a href="{% provider_login_url 'google' %}" class="btn btn-outline-info btn-lg mb-1 col-12" role="button"
+            aria-pressed="true"><i class="bi bi-google"></i>Login with Google</a><br>
+          <!-- a 태그로 수정하고 href="/accounts/signup/"으로 회원가입 페이지 경로 추가 -->
+          <a href="/accounts/signup/" class="btn btn-outline-info btn-lg mb-1 col-12" role="button"
+            aria-pressed="true"><i class="bi bi-envelope-at"></i>SignUp with E-mail</a><br>
+          <!-- login with e-mail > login with Username(email로 접속하는게 기본이므로) -->
+          <!-- a 태그, href="/accounts/login/" 으로 수정 -->
+          <a href="/accounts/login/" class="btn btn-outline-info btn-lg col-12" role="button" aria-pressed="true"><i
+              class="bi bi-envelope-fill"></i>Login with Username </a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
   <section>
@@ -29,7 +121,7 @@
         </div>
         <!-- 각 카드의 크기를 col-lg-5로 지정하고 위마진을 mt-5 -->
         <div class="col-lg-5 mt-5">
-          <h3 class="text-light">포트폴리오 - 최신 작품들</h3>
+          <h3>포트폴리오 - 최신 작품들</h3>
           <!-- for문으로 반복 걸고 diners앱에서 가져온 여러 post 출력 -->
           {% for post in recent_posts %}
           <!-- 카드 간 간격을 mt-1 -->
@@ -68,7 +160,12 @@
 
   <!-- 해당 footer를 브라우저 아랫부분에 붙어있도록 설정 -->
   <div class="fixed-bottom">
-    {% include 'footer.html' %}
+    <!-- Footer-->
+    <footer class="py-5 bg-light">
+      <div class="container">
+        <p class="m-0 text-center text-dark">Copyright &copy; Your Website 2021</p>
+      </div>
+    </footer>
   </div>
 
 
@@ -76,4 +173,5 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

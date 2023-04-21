@@ -16,3 +16,9 @@ def landing(request):
 
 def about_me(request):
   return render(request, 'single_pages/about_me.html')
+
+def portfolio(request):
+  return render(request, 'single_pages/portfolio.html')
+
+def toy_pjts(request):
+  return render(request, 'single_pages/toy_pjts.html')

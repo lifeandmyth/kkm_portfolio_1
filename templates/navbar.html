@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/">NKLCB</a>
+        <a class="navbar-brand" href="/">DiveLAB</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
                 class="navbar-toggler-icon"></span></button>
@@ -17,13 +17,13 @@
                     </a>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="/about_me/">About_me</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">Portfolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/portfolio/">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="/toy_pjts/">Toy Projects</a></li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-expanded="false">
                   <!-- (구글) 아바타 집어넣기 -->
                     <!-- 사용자가 로그인했을 경우, 그 사용자의 구글 아바타 보여주기 -->
                     {% if user.socialaccount_set.all.0.get_avatar_url %}
