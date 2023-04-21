@@ -10,12 +10,12 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kkm_portfolio.settings")
 django.setup()
 
 # Foods 클래스와 연결된 테이블에 data를 ORM으로 업로딩하기 위해 import함. (이하 실행을 위해선 위의 setdefault와 setup이 선행되어야 함)
-from food_costs.models import Eggs, Flour, Sugar, Pepper
+from food_costs.models import Eggs, Flour, Sugar, Pepper, SaltedMackerel, SaltedShrimp, Anchovy, Squid, Rice, ChapRice, WhiteBeans, RedBeans
 
 # csv 파일 위치 변수로 정의
 # CSV_PATH = './datas/egg_costs_txt.csv'
-CSV_PATH = ['./datas/egg_costs_txt.csv', './datas/flour_costs_txt.csv', './datas/sugar_costs_txt.csv', './datas/dried_pepper_txt.csv']
-path = [Eggs, Flour, Sugar, Pepper]
+CSV_PATH = ['./datas/egg_costs_txt.csv', './datas/flour_costs_txt.csv', './datas/sugar_costs_txt.csv', './datas/dried_pepper_txt.csv', './datas/salted_mackerel_txt.csv', './datas/salted_shrimp_txt.csv', './datas/dried_anchovy_txt.csv', './datas/water_squid_txt.csv', './datas/rice_costs_txt.csv', './datas/chap_rice_costs_txt.csv', './datas/whitebeans_costs_txt.csv', './datas/redbeans_costs_txt.csv' ]
+path = [Eggs, Flour, Sugar, Pepper, SaltedMackerel, SaltedShrimp, Anchovy, Squid, Rice, ChapRice, WhiteBeans, RedBeans]
 p = 0
 #Foods
 for i in CSV_PATH:

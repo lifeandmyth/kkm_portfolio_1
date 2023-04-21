@@ -25,12 +25,72 @@ class Sugar(models.Model):
     name = "설탕(/kg)"
     def __str__(self):
         return f'{self.date}--{self.unit_price}'
+    
 class Pepper(models.Model): 
     date = models.DateTimeField(default=timezone.now())
     unit_price = models.IntegerField()
     name = "건고추(/0.6kg)"
     def __str__(self):
         return f'{self.date}--{self.unit_price}'
+
+class SaltedMackerel(models.Model): 
+    date = models.DateTimeField(default=timezone.now())
+    unit_price = models.IntegerField()
+    name = "고등어_염장(/1마리)"
+    def __str__(self):
+        return f'{self.date}--{self.unit_price}'
+
+class SaltedShrimp(models.Model): 
+    date = models.DateTimeField(default=timezone.now())
+    unit_price = models.IntegerField()
+    name = "새우젓(/1kg)"
+    def __str__(self):
+        return f'{self.date}--{self.unit_price}'
+
+class Anchovy(models.Model): 
+    date = models.DateTimeField(default=timezone.now())
+    unit_price = models.IntegerField()
+    name = "건멸치(/0.1kg)"
+    def __str__(self):
+        return f'{self.date}--{self.unit_price}'
+
+class Squid(models.Model): 
+    date = models.DateTimeField(default=timezone.now())
+    unit_price = models.IntegerField()
+    name = "물오징어(/1마리)"
+    def __str__(self):
+        return f'{self.date}--{self.unit_price}'
+    
+class Rice(models.Model): 
+    date = models.DateTimeField(default=timezone.now())
+    unit_price = models.IntegerField()
+    name = "쌀(/20kg)"
+    def __str__(self):
+        return f'{self.date}--{self.unit_price}'
+    
+class ChapRice(models.Model): 
+    date = models.DateTimeField(default=timezone.now())
+    unit_price = models.IntegerField()
+    name = "찹쌀(/1kg)"
+    def __str__(self):
+        return f'{self.date}--{self.unit_price}'
+    
+class WhiteBeans(models.Model): 
+    date = models.DateTimeField(default=timezone.now())
+    unit_price = models.IntegerField()
+    name = "흰콩(/1kg)"
+    def __str__(self):
+        return f'{self.date}--{self.unit_price}'
+    
+class RedBeans(models.Model): 
+    date = models.DateTimeField(default=timezone.now())
+    unit_price = models.IntegerField()
+    name = "팥(/0.5kg)"
+    def __str__(self):
+        return f'{self.date}--{self.unit_price}'
+    
+
+
 
 #식량작물
 # class Rice(models.Model): 

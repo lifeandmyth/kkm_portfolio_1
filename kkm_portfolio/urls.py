@@ -26,7 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('diners/', include('diners.urls')),
     path('', include('single_pages.urls')),
-    path('dashboard2/', include('dashboard2.urls')),
+    # dashboard에 들어갈 항목&링크 목록을 표시
+    # path('itemlist/'), include('itemlist.urls'),
+    # dashboard 본체
+    path('dashboard/', include('dashboard.urls')),
     
     #summernote extension
     path('summernote/', include('django_summernote.urls')),
