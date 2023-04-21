@@ -1,0 +1,67 @@
+
+select {
+  margin-bottom: 10px;
+  outline: 0;
+  background: #F6F1E9;
+  color: #4F200D;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 4px;
+  border-radius: 9px;
+}
+
+#img {
+  display: block;
+  background: url("/static/dashboard/images/flower.jpg") no-repeat center center;
+  background-size: cover;
+  height: 150px;
+  width: 150px;
+}
+
+#dropdown {
+  display: block;
+  height: 100px;
+  width: 180px;
+  float:left;
+}
+#leftbox {
+  display: block;
+  position: relative;
+  float:left;
+}
+
+#textbox {
+  display: block;
+  position: relative;
+  float:right;
+  width: 240px;
+  margin-bottom: 350px; 
+}
+#img {
+  display: block;
+  float: left;
+}
+#text {
+  display: block;
+  position: relative;
+  float: right;
+  height: 100px;
+  
+} 
+
+#chart {
+  display: block;
+  position: relative;
+  float: right;
+}
+#chart1 {
+  display: block;
+  position: relative;
+  height: 300px;
+  width:500px;
+}
+#chart2 {
+  display: block;
+  position: relative;
+  height: 300px;
+
+}

@@ -6,5 +6,5 @@ app_name = 'dashboard'
 urlpatterns = [
     
     path('', views.foodiesinfo_index, name='foodiesinfo_index'),
-    path('', dashboard, name='dashboard'),
+    # path('', dashboard, name='dashboard'),
 ]
