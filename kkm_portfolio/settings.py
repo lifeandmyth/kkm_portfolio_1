@@ -58,7 +58,7 @@ INSTALLED_APPS = [
 
     'diners',
     'single_pages',
-    'dashboard',
+    'dashboard2',
     #datas적용된 앱들
     'food_costs',
 ]

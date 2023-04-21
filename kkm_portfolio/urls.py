@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('diners/', include('diners.urls')),
     path('', include('single_pages.urls')),
-    path('dashboard/', include('dashboard.urls')),
+    path('dashboard2/', include('dashboard2.urls')),
     
     #summernote extension
     path('summernote/', include('django_summernote.urls')),
