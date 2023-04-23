@@ -5,16 +5,16 @@ select {
   background: #F6F1E9;
   color: #4F200D;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 4px;
   border-radius: 9px;
 }
 
-#img {
+
+#leftbox {
   display: block;
-  background: url("/static/dashboard/images/flower.jpg") no-repeat center center;
-  background-size: cover;
-  height: 150px;
-  width: 150px;
+  position: relative;
+  float:left;
+  height: 50vh;
+
 }
 
 #dropdown {
@@ -23,29 +23,25 @@ select {
   width: 180px;
   float:left;
 }
-#leftbox {
+#img {
   display: block;
-  position: relative;
-  float:left;
+  float: left;
+  margin-left: 10px;
 }
 
 #textbox {
   display: block;
   position: relative;
   float:right;
-  width: 240px;
-  margin-bottom: 350px; 
-}
-#img {
-  display: block;
-  float: left;
+  width: 220px;
+  margin-left: 10px;
+  
 }
 #text {
   display: block;
   position: relative;
   float: right;
   height: 100px;
-  
 } 
 
 #chart {
@@ -57,11 +53,51 @@ select {
   display: block;
   position: relative;
   height: 300px;
-  width:500px;
+  width:36vw;
 }
 #chart2 {
   display: block;
   position: relative;
   height: 300px;
+  width:36vw;
 
+}
+
+@media ( max-width : 991px ) {
+  #leftbox {
+    width: 100%;
+  }
+
+  #chart {
+    float: none;
+    display : inline-block;
+    text-align : center;
+  }
+  #chart1 {
+    display: block;
+    position: relative;
+    height: 300px;
+    width:100vw;
+  }
+  #chart2 { 
+    width:100vw;
+  }
+
+  
+  #textbox {
+    display: block;
+    position: relative;
+    float:right;
+    width: 40vw;
+  }
+}
+
+
+@media ( max-width : 576px ) {
+  #text span {
+    display: -webkit-inline-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }

@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap4",
     #django-markdownx
     'markdownx',
+    #
 
     'diners',
     # diners, about_me(자기소개), portfolio 포함

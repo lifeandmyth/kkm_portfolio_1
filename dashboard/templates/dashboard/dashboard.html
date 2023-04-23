@@ -15,6 +15,17 @@
   <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}" media="screen">
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+  <style>
+    #img {
+      display: block;
+      background: url("/static/dashboard/images/flower.jpg") no-repeat center center;
+      background-size: cover;
+      height: 150px;
+      width: 150px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -57,7 +68,8 @@
       <div id="textbox">
         <div class="col-6-lg" id="text">
           <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed ultricies orci. Morbi vitae nisi tempor, cursus erat a, luctus tortor. Nullam dignissim id elit eget maximus. Praesent euismod sit amet risus quis convallis. Phasellus blandit nulla in blandit gravida. In finibus orci id interdum pretium. Cras quam tortor, convallis sit amet convallis vel, suscipit sit amet neque.</span>
+            {% for contents in contents %}{{ contents }}<br>{% endfor %}
+          </span>
         </div>
       </div>
 
