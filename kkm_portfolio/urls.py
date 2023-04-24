@@ -27,7 +27,7 @@ urlpatterns = [
     path('diners/', include('diners.urls')),
     path('', include('single_pages.urls')),
     # dashboard에 들어갈 항목&링크 목록을 표시
-    # path('itemlist/'), include('itemlist.urls'),
+    path('foodies_list/', include('foodies_list.urls')),
     # dashboard 본체
     path('dashboard/', include('dashboard.urls')),
     
