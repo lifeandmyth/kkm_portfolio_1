@@ -12,7 +12,7 @@ from markdownx.admin import MarkdownxModelAdmin
 # Register your models here.
 # only content field in Post model will have SummernoteWidget.
 class PostAdmin(SummernoteModelAdminMixin):
-    summernote_fields = ('content',) # 구체적으로 Textfield에 적용한다는 의미(models.py에 확인)
+    summernote_fields = ('content') # 구체적으로 Textfield에 적용한다는 의미(models.py에 확인)
 
 # PostAdmin은 Summernote 때문에 추가.
 # admin.site.register(Post, PostAdmin)

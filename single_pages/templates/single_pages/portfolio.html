@@ -1,15 +1,71 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
-  <title>개발자 김경민입니다.</title>
+<title>개발자 김경민입니다.</title>
 {% endblock %}
 
+{% block link %}
+
+<link rel="stylesheet" href="{% static 'single_pages/css/portfolio.css'%}">
+{% endblock %}
 
 
 {% block main_area%}
 
-<h1>안녕하세요. 김경민입니다</h1>
-<h2>Portfolio 목록</h2>
-<h3>아직 공사중입니다.</h3>
-<a href="/portfolio/itemlist/"></a>
+
+
+
+<div class="container" >
+  <div class="row justify-content-between">
+    <div class="col-lg-6 text-dark">
+      <div id="img">
+        <h2 class="rounded">&nbsp;K's DiveLab&nbsp;</h2>
+        &nbsp;
+      </div>
+    </div>
+    <div class="col-lg-5 mt-1">
+      <h3>포트폴리오 - 최신 작품들</h3>
+      &nbsp;
+      <!-- for문으로 반복 걸고 diners앱에서 가져온 여러 post 출력 -->
+      <!-- 카드 간 간격을 mt-1 -->
+      <div class="card mt-1">
+        <div class="card-body">
+          <!-- 포스트의 제목을 클릭했을 때 그 포스트의 상세 페이지로 넘어가게 하기 -->
+          <h6><a href="/diners/" class="text-decoration-none text-dark"><i class="bi bi-journal-bookmark-fill"></i>&nbsp;블로그 템플릿 Diners</a></h6>
+
+        </div>
+        
+      </div>
+      <div class="card mt-1">
+        <div class="card-body">
+          <!-- 포스트의 제목을 클릭했을 때 그 포스트의 상세 페이지로 넘어가게 하기 -->
+          <h6><a href="/dashboard/" class="text-decoration-none text-dark"><i class="bi bi-egg-fried"></i>&nbsp;식재료 분석 보고서 SearchFoodies</a></h6>
+  
+        </div>
+
+      </div>
+      &nbsp;
+      &nbsp;
+      <h3>토이 프로젝트 - 인기 순위</h3>
+      &nbsp;
+      <div class="card mt-1">
+        <div>
+          <div class="card-body">
+            <!-- 포스트의 제목을 클릭했을 때 그 포스트의 상세 페이지로 넘어가게 하기 -->
+            <h6><a href="https://github.com/lifeandmyth/frontend_lotto_pjt.git" class="text-decoration-none text-dark"
+                target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i>&nbsp로또볼 시뮬레이션 Lotto_Balls</a>
+            </h6>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include 'footer.html' %}
 
 {% endblock %}

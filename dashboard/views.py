@@ -10,10 +10,11 @@ def dashboard(request):
     name = Eggs.name
     with open('./datas/txt/1eggs.txt', encoding="UTF8") as f:
         contents = f.read().splitlines()
-    
+    image_url = '/static/dashboard/images/eggs_640.jpg'
     context = {
         'dataset' : data,
         'name' : name,
+        'image_url' : image_url,
         'contents' : contents,
     }
     return render(request, 'dashboard/dashboard.html', context)
@@ -27,63 +28,75 @@ def foodiesinfo_index(request):
     if foodies_txt == "01":
         data = Eggs.objects.all()
         name = Eggs.name
+        image_url = '/static/dashboard/images/eggs_640.jpg'
         with open('./datas/txt/1eggs.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
         
     elif foodies_txt == "02":
         data = Flour.objects.all()
         name = Flour.name
+        image_url = '/static/dashboard/images/flour_640.jpg'
         with open('./datas/txt/2flour.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
         
     elif foodies_txt == "03":
         data = Sugar.objects.all()
         name = Sugar.name
+        image_url = '/static/dashboard/images/sugar_640.jpg'
         with open('./datas/txt/3sugar.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
     elif foodies_txt == "04":
         data = Pepper.objects.all()
         name = Pepper.name
+        image_url = '/static/dashboard/images/pepper_640.jpg'
         with open('./datas/txt/4dried_pepper.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
     elif foodies_txt == "05":
         data = SaltedMackerel.objects.all()
         name = SaltedMackerel.name
+        image_url = '/static/dashboard/images/mackerel_640.jpg'
         with open('./datas/txt/5salted_mackerel.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
     elif foodies_txt == "06":
         data = SaltedShrimp.objects.all()
         name = SaltedShrimp.name
+        image_url = '/static/dashboard/images/shrimp_640.jpg'
         with open('./datas/txt/6salted_shrimp.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
     elif foodies_txt == "07":
         data = Anchovy.objects.all()
         name = Anchovy.name
+        image_url = '/static/dashboard/images/anchovy_640.jpg'
         with open('./datas/txt/7dried_anchovy.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
     elif foodies_txt == "08":
         data = Squid.objects.all()
         name = Squid.name
+        image_url = '/static/dashboard/images/squid_640.jpg'
         with open('./datas/txt/8water_squid.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
     elif foodies_txt == "09":
         data = Rice.objects.all()
         name = Rice.name
+        image_url = '/static/dashboard/images/rice_640.jpg'
         with open('./datas/txt/9rice.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
     elif foodies_txt == "10":
         data = ChapRice.objects.all()
         name = ChapRice.name
+        image_url = '/static/dashboard/images/chap_rice_640.jpg'
         with open('./datas/txt/10chap_rice.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
     elif foodies_txt == "11":
         data = WhiteBeans.objects.all()
         name = WhiteBeans.name
+        image_url = '/static/dashboard/images/white_beans_640.jpg'
         with open('./datas/txt/11white_beans.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
     elif foodies_txt == "12":
         data = RedBeans.objects.all()
         name = RedBeans.name
+        image_url = '/static/dashboard/images/red_beans_640.jpg'
         with open('./datas/txt/12red_beans.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
     
@@ -91,6 +104,7 @@ def foodiesinfo_index(request):
     else:
         data = Eggs.objects.all()
         name = Eggs.name
+        image_url = '/static/dashboard/images/eggs_640.jpg'
         with open('./datas/txt/1eggs.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
         
@@ -100,6 +114,7 @@ def foodiesinfo_index(request):
         'dataset' : data,
         'name' : name,
         'contents' : contents,
+        'image_url' : image_url,
     }
     return render(request, 'dashboard/dashboard.html', context)
     
