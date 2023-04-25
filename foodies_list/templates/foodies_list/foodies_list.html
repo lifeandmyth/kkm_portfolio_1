@@ -39,8 +39,8 @@
       border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 9px;
     }
-    form>button {
-      margin-bottom: 200px;
+    header button {
+      margin-top: 50px;
     }
 
     @media (max-width : 991px) {
@@ -82,31 +82,10 @@
   &nbsp;
   <h5>카테고리를 골라주세요:</h5>
   <!-- 고른 뒤 검색 버튼을 눌렀을 때 다음 페이지로 넘어감 -->
-  <form method="get" action="" class="form" >
-    <select name="searched" id="searched" style="width: 300px;" size="6" onchange="changeFn()" >
-      <option value="0" selected>식재료 선택</option>
-      <optgroup label="일반">
-        <option name="searched" value="01">계란(/30개)</option>
-        <option name="searched"value="02">밀가루(/kg)</option>
-        <option name="searched"value="03">설탕(/kg)</option>
-        <option name="searched"value="04">고추(/0.6kg)</option>
-      </optgroup>
-      <optgroup label="수산물">
-        <option name="searched"value="05">고등어(/1마리)</option>
-        <option name="searched"value="06">새우젓(/1kg)</option>
-        <option name="searched"value="07">건멸치(/0.1kg)</option>
-        <option name="searched"value="08">물오징어(1마리)</option>
-      </optgroup>
-      <optgroup label="곡물">
-        <option name="searched"value="09">쌀(/20kg)</option>
-        <option name="searched"value="10">찹쌀(/kg)</option>
-        <option name="searched"value="11">흰콩(/0.5kg)</option>
-        <option name="searched"value="12">팥(/0.5kg)</option>
-      </optgroup>
-    </select>
-    <button class="btn btn-outline-dark" onclick="location.href='foodies_list/parameter/';return false;"  >검색하기 </button>
-    <a href="parameter/">검색2</a>
-  </form>
+  
+<button class="btn btn-outline-dark" onclick="location.href='/foodies_list/dashboard/?foodies=={{foodies_op}}';return false;"  >직접 검색하기</button>
+
+
 </header>
 
 {% endblock %}
@@ -122,25 +101,24 @@
   <h4>카테고리 : 일반</h4>
   <section class="common row">
     
-      <div class="event col-lg mr-2 text-center"></a><img src="/static/foodies_list/images/eggs_640.jpg" alt="img"  width="100%" height="160"><a href="/dashboard/" class="text-dark">계란</a></div>
-    
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/flour_640.jpg" alt="img"  width="100%" height="160">밀가루</div>
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/sugar_640.jpg" alt="img"  width="100%" height="160">설탕</div>
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/pepper_640.jpg" alt="img"  width="100%" height="160">고추</div>
+    <div class="event col-lg mr-2 text-center"></a><img src="/static/foodies_list/images/eggs_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=01" class="text-dark">계란</a></div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/flour_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=02" class="text-dark">밀가루</a></div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/sugar_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=03" class="text-dark">설탕</a></div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/pepper_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=04" class="text-dark">고추</a></div>
   </section>
   <h4>카테고리 : 수산물</h4>
   <section class="marine_pdt row">
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/mackerel_640.jpg" alt="img"  width="100%" height="160">고등어</div>
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/shrimp_640.jpg" alt="img"  width="100%" height="160">새우젓</div>
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/anchovy_640.jpg" alt="img"  width="100%" height="160">건멸치</div>
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/squid_640.jpg" alt="img"  width="100%" height="160">오징어</div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/mackerel_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=05" class="text-dark">고등어</a></div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/shrimp_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=06" class="text-dark">새우젓</a></div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/anchovy_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=07" class="text-dark">건멸치</a></div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/squid_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=08" class="text-dark">오징어</a></div>
   </section>
   <h4>카테고리 : 식량작물</h4>
   <section class="food_crop row">
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/rice_640.jpg" alt="img"  width="100%" height="160">쌀</div>
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/chap_rice_640.jpg" alt="img"  width="100%" height="160">찹쌀</div>
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/white_beans_640.jpg" alt="img"  width="100%" height="160">흰콩</div>
-    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/red_beans_640.jpg" alt="img"  width="100%" height="160">팥</div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/rice_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=09" class="text-dark">쌀</a></div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/chap_rice_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=10" class="text-dark">찹쌀</a></div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/white_beans_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=11" class="text-dark">흰콩</a></div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/red_beans_640.jpg" alt="img"  width="100%" height="160"><a href="/foodies_list/dashboard/?foodies=12" class="text-dark">팥</a></div>
   </section>
 </div>
 
@@ -164,12 +142,19 @@
 {% endblock %}
 
 {% block script_area %}
-  <script>
-    function changeFn(){
-      var searched  = document.getElementById("searched");
-      var value = (searched.options[searched.selectedIndex].value);
-      alert("value = "+value);
-    };
-
-  </script>
+<script>
+  $(document).ready(function () {
+    $('select[name=foodies]').change(function () {
+      console.log($('select[name=foodies]').val());
+      let test = '${foodies}';
+      $("#foodies").val(test).prop("selected", true);
+      $('.form').submit();
+    });
+  });
+		
+		/* 		
+		var selectedindex = city.selectedIndex;
+		alert("value = "+value+" , selectedindex = "+selectedindex); 
+		*/
+</script>
 {% endblock %}

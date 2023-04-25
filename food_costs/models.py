@@ -90,6 +90,12 @@ class RedBeans(models.Model):
         return f'{self.date}--{self.unit_price}'
     
 
+class FlourFood(models.Model):
+    date = models.DateTimeField(default=timezone.now())
+    meal_price = models.IntegerField()
+    name = "자장면(/1인분)"
+    def __str__(self):
+        return f'{self.date}--{self.meal_price}'
 
 
 #식량작물

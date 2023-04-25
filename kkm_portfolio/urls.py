@@ -29,7 +29,6 @@ urlpatterns = [
     # dashboard에 들어갈 항목&링크 목록을 표시
     path('foodies_list/', include('foodies_list.urls')),
     # dashboard 본체
-    path('dashboard/', include('dashboard.urls')),
     
     #summernote extension
     path('summernote/', include('django_summernote.urls')),

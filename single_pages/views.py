@@ -1,7 +1,6 @@
 from django.shortcuts import render
 # blog에서 models의 Post 호출
 from diners.models import Post
-from dashboard.models import Dashboard
 
 # Create your views here.
 
