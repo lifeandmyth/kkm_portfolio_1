@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
+from . import myenv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,14 +23,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-oj0lzgjmjp691*@pd$z5@e7fcou&)24y1wgzg3bp8u((-m%84l'
+SECRET_KEY = myenv.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = myenv.DEBUG
 
 # 기본, 인트라넷, aws 퍼블릭IPV4
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.0.96', '52.79.233.208']
+ALLOWED_HOSTS = myenv.ALLOWED_HOSTS
 
+
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+DATABASES = myenv.DATABASES_LITE
 
 # Application definition
 
@@ -98,15 +105,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'kkm_portfolio.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
@@ -147,6 +145,10 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# https://kante-kante.tistory.com/22
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -1,25 +1,156 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
   <title>SearchFoodies Home</title>
 {% endblock %}
 
+{% block link %}
+  <style>
+    header {
+      height: 250px;
+      background: url("/static/foodies_list/images/tomatoes_1280_light.jpg") no-repeat center center;
+      background-size: cover;
+      text-align: center;
+    }
 
+
+
+    .contain_box {
+      margin-bottom: 300px;      
+    }
+    .contain_box section {
+      height: 300px;
+      /* justify-content: center; */
+    }
+    .contain_box section div {
+      display: block;
+      width: 220px;
+      height: 200px;
+      background-color: #F6F1E9;
+      
+    }
+    .contain_box section div img {
+      margin-bottom: 5px;
+    }
+    select {
+      outline: 0;
+      background: #F6F1E9;
+      color: #4F200D;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 9px;
+    }
+    form>button {
+      margin-bottom: 200px;
+    }
+
+    @media (max-width : 991px) {
+      .contain_box section {
+      margin-bottom: 200px;
+    }
+      .event:nth-child(4n){
+        margin-top: 10px;
+      }
+
+    }
+    @media (max-width : 767px) {
+      
+      .event:nth-child(4n+3){
+        margin-top: 10px;
+      }
+    }
+    @media (max-width : 575px) {
+      .contain_box {
+      text-align: center;
+    }
+
+      .contain_box section {
+      justify-content: center;
+    }
+      .event:nth-child(4n+3){
+        margin-top: 10px;
+      }
+    }
+
+  </style>
+{% endblock %}
+
+
+{% block container_above%}
+
+<!-- 배경 이미지(header에 직접), 검색창이 들어서야 함. -->
+<header>
+  &nbsp;
+  <h5>카테고리를 골라주세요:</h5>
+  <!-- 고른 뒤 검색 버튼을 눌렀을 때 다음 페이지로 넘어감 -->
+  <form method="get" action="" class="form" >
+    <select name="searched" id="searched" style="width: 300px;" size="6" onchange="changeFn()" >
+      <option value="0" selected>식재료 선택</option>
+      <optgroup label="일반">
+        <option name="searched" value="01">계란(/30개)</option>
+        <option name="searched"value="02">밀가루(/kg)</option>
+        <option name="searched"value="03">설탕(/kg)</option>
+        <option name="searched"value="04">고추(/0.6kg)</option>
+      </optgroup>
+      <optgroup label="수산물">
+        <option name="searched"value="05">고등어(/1마리)</option>
+        <option name="searched"value="06">새우젓(/1kg)</option>
+        <option name="searched"value="07">건멸치(/0.1kg)</option>
+        <option name="searched"value="08">물오징어(1마리)</option>
+      </optgroup>
+      <optgroup label="곡물">
+        <option name="searched"value="09">쌀(/20kg)</option>
+        <option name="searched"value="10">찹쌀(/kg)</option>
+        <option name="searched"value="11">흰콩(/0.5kg)</option>
+        <option name="searched"value="12">팥(/0.5kg)</option>
+      </optgroup>
+    </select>
+    <button class="btn btn-outline-dark" onclick="location.href='foodies_list/parameter/';return false;"  >검색하기 </button>
+    <a href="parameter/">검색2</a>
+  </form>
+</header>
+
+{% endblock %}
+
+  <!-- <a href="/{% url 'search' %}"></a> -->
 
 {% block main_area%}
 
 
 
+<!-- 각 항목 div 박스마다 <a></> 링크를 걸어야 함. -->
+<div class="contain_box">
+  <h4>카테고리 : 일반</h4>
+  <section class="common row">
+    
+      <div class="event col-lg mr-2 text-center"></a><img src="/static/foodies_list/images/eggs_640.jpg" alt="img"  width="100%" height="160"><a href="/dashboard/" class="text-dark">계란</a></div>
+    
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/flour_640.jpg" alt="img"  width="100%" height="160">밀가루</div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/sugar_640.jpg" alt="img"  width="100%" height="160">설탕</div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/pepper_640.jpg" alt="img"  width="100%" height="160">고추</div>
+  </section>
+  <h4>카테고리 : 수산물</h4>
+  <section class="marine_pdt row">
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/mackerel_640.jpg" alt="img"  width="100%" height="160">고등어</div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/shrimp_640.jpg" alt="img"  width="100%" height="160">새우젓</div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/anchovy_640.jpg" alt="img"  width="100%" height="160">건멸치</div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/squid_640.jpg" alt="img"  width="100%" height="160">오징어</div>
+  </section>
+  <h4>카테고리 : 식량작물</h4>
+  <section class="food_crop row">
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/rice_640.jpg" alt="img"  width="100%" height="160">쌀</div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/chap_rice_640.jpg" alt="img"  width="100%" height="160">찹쌀</div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/white_beans_640.jpg" alt="img"  width="100%" height="160">흰콩</div>
+    <div class="event col-lg mr-2 text-center"><img src="/static/foodies_list/images/red_beans_640.jpg" alt="img"  width="100%" height="160">팥</div>
+  </section>
+</div>
 
-<h1>안녕하세요. 김경민입니다</h1>
-<h2>이력</h2>
-<h2>백엔드 개발자이자 데이터 엔지니어를 향해 도약하는 예비 개발자 꿈나무의 자기소개 페이지입니다.</h2>
-<h3>아직 공사중입니다.</h3>
+
 
 {% endblock %}
 
 
 {% block footer %}
-  <footer class="py-5 bg-dark fixed-bottom">
+  <footer class="py-5 bg-dark">
     <div class="container">
       <h4 class="text-white"> K's DiveLab</h4>
 
@@ -30,4 +161,15 @@
       <p class="m-0 text-white"> Copyright ⓒ DiveLab 2023. All rights reserved.  </p>
   </div>
   </footer>
+{% endblock %}
+
+{% block script_area %}
+  <script>
+    function changeFn(){
+      var searched  = document.getElementById("searched");
+      var value = (searched.options[searched.selectedIndex].value);
+      alert("value = "+value);
+    };
+
+  </script>
 {% endblock %}
