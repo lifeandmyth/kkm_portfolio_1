@@ -115,10 +115,10 @@
       label: '{{name}} 가격 정보',
       data: [{% for data in dataset %}'{{ data.unit_price }}', {% endfor %}],
       backgroundColor: [
-        'rgba(246, 231, 233, 0.3)',
-        'rgba(255, 217, 61, 0.3)',
-        'rgba(255, 132, 0, 0.3)',
-        'rgba(79, 32, 13, 0.3)',
+        'rgba(246, 231, 233, 0.6)',
+        'rgba(255, 217, 61, 0.6)',
+        'rgba(255, 132, 0, 0.6)',
+        'rgba(79, 32, 13, 0.6)',
       ],
         borderWidth: 1
         }
@@ -135,19 +135,20 @@
     }
     });
     const myChart2 = new Chart(ctx2, {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: [{% for data2 in dataset2 %}'{{ data2.date | date:"Y m"}}', {% endfor %}],
     datasets: [{
       label: '{{name2}} 가격 정보',
       data: [{% for data2 in dataset2 %}'{{ data2.meal_price }}', {% endfor %}],
       backgroundColor: [
-        'rgba(246, 231, 233, 0.3)',
-        'rgba(255, 217, 61, 0.3)',
-        'rgba(255, 132, 0, 0.3)',
-        'rgba(79, 32, 13, 0.3)',
+        'rgba(246, 231, 233, 0.6)',
+        'rgba(255, 217, 61, 0.6)',
+        'rgba(255, 132, 0, 0.6)',
+        'rgba(79, 32, 13, 0.6)',
       ],
-        borderWidth: 1
+      borderColor: ['rgba(79, 32, 13, 0.6)'],
+        borderWidth: 5
         }
         
       ]

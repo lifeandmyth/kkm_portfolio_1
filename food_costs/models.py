@@ -96,6 +96,14 @@ class FlourFood(models.Model):
     name = "자장면(/1인분)"
     def __str__(self):
         return f'{self.date}--{self.meal_price}'
+    
+
+class SugarFood(models.Model):
+    date = models.DateTimeField(default=timezone.now())
+    meal_price = models.IntegerField()
+    name = "냉면(/1인분)"
+    def __str__(self):
+        return f'{self.date}--{self.meal_price}'
 
 
 #식량작물
