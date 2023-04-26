@@ -1,20 +1,144 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
   <title>개발자 김경민입니다.</title>
 {% endblock %}
 
+{% block link %}
+  <style>
+
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 700;
+        font-style: normal;
+    }
+    body {
+      font-family: 'Pretendard-Regular';
+    }
+
+    #img {
+      display: inline-block;
+      width: 180px;
+      height: 180px;
+      background: url('/static/single_pages/images/kkm_token.png') no-repeat center center;
+      background-size: cover;
+      
+    }
+    #person_info {
+      display: inline-block;
+      width: 80%;
+      height: 180px;
+      background-color: #F6F1E9;
+    }
+    #txtblock1 {
+      padding: 10px;
+      display: inline-block;
+      height: 440px;
+      background: url('/static/single_pages/images/programming_1920_ex.jpg') no-repeat;
+      background-size: cover;
+      width: 40%; 
+      text-align: center;
+      
+    }
+    #person_info span {
+      display: inline-block;
+      height: 30px;
+    }
+
+    #txtblock2 {
+      display: block;
+      float: right;
+      padding-left: 45px;
+    }
+    #txtblock2 section>div {
+      display: block;
+      float: left;
+      width: 50%;
+      height: 150px;
+    }
+
+    #skills {
+      padding: 5px;
+      text-align: center;
+    }
+
+    @media (max-width : 991px) {
+      #txtblock1 {
+        width: 100%;
+        margin-right: 0px;
+      }
+    }
+  </style>
+{% endblock %}
 
 
 {% block main_area%}
 
 
-<div id="img">
+<div id="txtblock1" class="col-4">
+  <div id="img"></div>
+  <div id="person_info" style="text-align: left; padding:10px;">
+    <span>Birthday: 1990.10.08</span><br>
+    <span>Tel: 010-9000-2000</span><br>
+    <span>E-mail: lifeandmyth@gmail.com</span><br>
+    <span><i class="bi bi-github"></i>&nbsp;Github: <a href="https://github.com/lifeandmyth" target="_blank">https://github.com/lifeandmyth</a></span>
+  </div>
+</div>
+
+<div id="txtblock2" class="col-8">
+  <div style="margin-left: 15px;">
+    <h4>Level Up!</h4>
+    <h1>데이터 엔지니어</h1>
+    <h5>김경민입니다</h5>
+  </div>
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  <section>
+    <div class="col" style="height: 300px">
+      <h5><i class="bi bi-circle-fill"></i>&nbsp;Skills&Tools</h5>
+      <div id="skills" style="width:250px; height:100px; background-color:#F6F1E9;">
+        <img src="/static/single_pages/images/django_logo.png" alt="img" style="width:100px; height:100px;margin-right:5px">
+        <img src="/static/single_pages/images/python_logo.png" alt="img" style="width:80px; height:80px;">
+
+      </div>
+      <br>
+      <ul>
+        <li>python 3.9</li>
+        <li>bootstrap 4.6</li>
+        <li>html, css, javascript, jqery 활용</li>
+        <li>django 3.2</li>
+        <li>aws - ubuntu 20.04</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h5><i class="bi bi-circle-fill"></i>&nbsp;경력</h5>
+      <ul>
+        <li>한양대(4년) 화학과 학사 졸업</li>
+        <li>'(산대특)_파이썬 오픈소스를 활용한 머신러닝 빅데이터 분석 SW개발자 양성_육성' 과정 수료 예정</li>
+
+      </ul>
+    </div>
+    
+    <div class="col">
+      <h5><i class="bi bi-circle-fill"></i>&nbsp;Interest</h5>
+      <ul>
+        <li>기술 스택 확보 - Python, Django, Mysql </li>
+  
+        <li>빅데이터 플랫폼 구축 실습</li>
+        <li>데이터 서비스 제공을 위한 웹 어플리케이션 제작</li>
+        <li>포트폴리오 - '외식업주를 위한 정보 공유 앱'으로 확장 </li>
+        <li>게임 bgm 수집 - 다목적으로 활용</li>
+
+      </ul>
+
+    </div>
+
+  </section>
+  
 
 </div>
-<h1>안녕하세요. 김경민입니다</h1>
-<h2>이력</h2>
-<h2>백엔드 개발자이자 데이터 엔지니어를 향해 도약하는 예비 개발자 꿈나무의 자기소개 페이지입니다.</h2>
-<h3>아직 공사중입니다.</h3>
 
 {% endblock %}
 

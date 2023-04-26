@@ -58,7 +58,7 @@ def foodiesinfo_index(request):
         data2 = FlourFood.objects.all()
         name2 = FlourFood.name
         
-        image_url = '/static/dashboard/images/flour_640.jpg'
+        image_url = '/static/foodies_list/images/flour_640.jpg'
         with open('./datas/txt/2flour.txt', encoding="UTF8") as f:
             contents = f.read().splitlines()
         
