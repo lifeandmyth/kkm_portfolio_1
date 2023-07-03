@@ -12,8 +12,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import pymysql
 
 from . import myenv
+pymysql.install_as_MySQLdb()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = myenv.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = myenv.DEBUG
 DEBUG = myenv.DEBUG
 
 # 기본, 인트라넷, aws 퍼블릭IPV4
@@ -35,8 +39,20 @@ ALLOWED_HOSTS = myenv.ALLOWED_HOSTS
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = myenv.DATABASES_LITE
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': myenv.NAME,
+        'USER': myenv.USER,
+        'PASSWORD' : myenv.PASSWORD,
+        'HOST' : myenv.HOST,
+        'PORT' : '3306',
+        'OPTIONS':{
+            'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'",
+            # 'use_pure' : True
+        }
+    }
+}
 # Application definition
 
 INSTALLED_APPS = [
