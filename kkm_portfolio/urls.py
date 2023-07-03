@@ -41,4 +41,8 @@ urlpatterns = [
 
 ]
 # summernote: When debug option is enabled(DEBUG=True), DO NOT forget to add urlpatterns as shown below:
+## gunicorn 사용시 설정 필요
+# django와 nginx 연동(on ubuntu linux) 7
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

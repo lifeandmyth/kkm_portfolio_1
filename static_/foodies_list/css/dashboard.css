@@ -1,0 +1,177 @@
+/* google font 호출 */
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700&display=swap');
+
+body {
+
+  font-family: 'Gothic A1', sans-serif;
+}
+
+
+#container {
+  padding: 12px;
+  background-color: #F6F1E9;
+  display : block;
+  height : 700px;
+}
+
+select {
+  margin-bottom: 10px;
+  outline: 0;
+  background: #F6F1E9;
+  color: #4F200D;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 9px;
+}
+
+
+#leftbox {
+  display: block;
+  position: relative;
+  float:left;
+  width: 21vw;
+  height: 50vh;
+  margin-bottom: 30px;
+
+}
+
+#dropdown {
+  display: block;
+  height: 100px;
+  float:left;
+}
+
+#textbox::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(255,255,255,0.75);
+  border-radius: 5%;
+
+}
+
+#img {
+  height: 360px;
+  width: 420px;
+  float: left;
+}
+
+#textbox {
+  padding: 10px;
+  padding-top: 20px;
+  display: block;
+  position: relative;
+  float:left;
+  height: 360px;
+  
+}
+#text {
+  display: block;
+  position: relative;
+  height: 100px;
+  margin-left: 10px;
+} 
+#img #textbox {
+  width: 420px;
+}
+
+#chart {
+  display: block;
+  position: relative;
+  float: right;
+  width:55%;
+}
+#chart1, #chart2 {
+  background-color: white;
+  height: 300px;
+}
+
+
+@media (max-width : 1199px) {
+
+  #chart {
+    float: right;
+    width: 50%;
+  }
+
+  #chart1 {
+    height: 300px;
+  }
+
+  #chart2 {
+    height: 300px;
+  }
+}
+
+@media (max-width : 991px) {
+  #container {
+    height : 1000px;
+  }
+  #leftbox {
+    width: 100%;
+  }
+  #img {
+    float: right;
+    width: 500px;
+  }
+
+  #img #textbox {
+    width: 500px;
+  }
+
+  #dropdown {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .form {
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+  }
+  
+    
+  #chart {
+    float: none;
+    display : inline-block;
+    text-align : center;
+    width: 100%;
+  }
+  #chart1 {
+    display: inline-block;
+    height: 250px;
+    width:63vw;
+  }
+  #chart2 {
+    display: inline-block;
+    height: 250px;
+    width:63vw;
+  }
+
+
+  footer {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width : 767px) {
+  #img {
+    width: 320px;
+  }
+
+  #img #textbox {
+    width: 320px;
+  }
+}
+
+
+
+@media ( max-width : 576px ) {
+  #text span {
+    display: -webkit-inline-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

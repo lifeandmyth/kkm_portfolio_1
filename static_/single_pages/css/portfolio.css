@@ -1,0 +1,27 @@
+#img {
+  background: url("/static/single_pages/images/ux_1920.jpg") no-repeat center center;
+  padding: 20px;
+  height: 420px;
+  border-radius: 10px;
+  background-size: cover;
+
+  border: 2px solid rgb(79, 32, 13);
+  
+}
+#img h2 {
+  position: absolute;
+  bottom: 80px;
+  color: #FFD93D;
+  line-height: 50px;
+  background-color:rgb(79, 32, 13, 0.6)
+}
+
+footer {
+  margin-top: 200px;
+}
+
+@media ( max-width : 991px ) {
+  footer {
+    margin-top: 10px;
+  }
+}

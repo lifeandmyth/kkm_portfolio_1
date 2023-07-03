@@ -12,9 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import pymysql
 
 from . import myenv
+
+import pymysql
 pymysql.install_as_MySQLdb()
 
 
@@ -87,9 +88,15 @@ INSTALLED_APPS = [
     'foodies_list', 
     #datas적용된 앱들
     'food_costs',
+
+    # cors 에러 처리
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    # cors 에러 처리
+   	'corsheaders.middleware.CorsMiddleware', #최상단에 추가해주기
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -97,7 +104,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    
 ]
+
+CORS_ALLOWED_ORIGINS = [
+	# 허용할 Origin 추가
+    "http://43.201.254.244/"
+]
+
 
 ROOT_URLCONF = 'kkm_portfolio.urls'
 
@@ -160,15 +175,19 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# https://kante-kante.tistory.com/22
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+
+if DEBUG==True:
+    # https://kante-kante.tistory.com/22
+    STATICFILES_DIRS = [os.path.join(BASE_DIR / 'static/')]
+# 
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 
 MEDIA_URL = '/_media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media/')
