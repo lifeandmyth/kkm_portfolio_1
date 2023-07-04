@@ -89,13 +89,13 @@ INSTALLED_APPS = [
     #datas적용된 앱들
     'food_costs',
 
-    # cors 에러 처리
-    'corsheaders',
+    # # cors 에러 처리
+    # 'corsheaders',
 ]
 
 MIDDLEWARE = [
-    # cors 에러 처리
-   	'corsheaders.middleware.CorsMiddleware', #최상단에 추가해주기
+    # # cors 에러 처리
+   	# 'corsheaders.middleware.CorsMiddleware', #최상단에 추가해주기
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -108,10 +108,10 @@ MIDDLEWARE = [
     
 ]
 
-CORS_ALLOWED_ORIGINS = [
-	# 허용할 Origin 추가
-    "http://43.201.254.244/"
-]
+# CORS_ALLOWED_ORIGINS = [
+# 	# 허용할 Origin 추가
+#     "http://43.201.254.244/"
+# ]
 
 
 ROOT_URLCONF = 'kkm_portfolio.urls'
@@ -176,10 +176,10 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-if DEBUG==True:
-    # https://kante-kante.tistory.com/22
-    STATICFILES_DIRS = [os.path.join(BASE_DIR / 'static/')]
-# 
+# if DEBUG==True:
+#     # https://kante-kante.tistory.com/22
+#     STATICFILES_DIRS = [os.path.join(BASE_DIR / 'static/')]
+# # 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_/')
 
