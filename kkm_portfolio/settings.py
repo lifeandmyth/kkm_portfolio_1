@@ -132,7 +132,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'kkm_portfolio.wsgi.application'
+WSGI_APPLICATION = 'kkm_portfolio.wsgi:application'
 
 
 
@@ -190,7 +190,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MEDIA_URL = '/_media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '_media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # all-auth lib 설정
 AUTHENTICATION_BACKENDS = [

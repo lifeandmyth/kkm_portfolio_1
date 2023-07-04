@@ -45,4 +45,11 @@ urlpatterns = [
 # django와 nginx 연동(on ubuntu linux) 7
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+# config/urls.py
+
+# if settings.DEBUG is False:
+#     urlpatterns += [
+        
+#         re_path(r'^/static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}) # 나는 static
+#     ]
 
